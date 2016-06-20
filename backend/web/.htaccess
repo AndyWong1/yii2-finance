@@ -1,0 +1,13 @@
+##
+#互联网理财平台后台-开源项目
+#@from 阳光地带 www.sunshinearea.com
+#@mail huangzhihua1988@gmail.com
+#@author:Andy Wong 1
+##
+RewriteEngine on
+
+#如果是目录或文件存在，就访问目录或文件
+RewriteCond %{REQUEST_FILENAME} !-d
+#如果文件存在，访问文件
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php
