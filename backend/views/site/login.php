@@ -1,3 +1,4 @@
+
 <?php
 
 /* @var $this yii\web\View */
@@ -5,31 +6,80 @@
 /* @var $model \common\models\LoginForm */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
+use backend\assets\LoginAsset;
+use backend\assets\FontAwesomeAsset;
 
-$this->title = 'Login';
+FontAwesomeAsset::register($this);
+LoginAsset::register($this);
+$this->title = '登录';
 $this->params['breadcrumbs'][] = $this->title;
+$image_path = Url::to('@web/');
+
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="互联网理财平台后台">
+    <?=Html::csrfMetaTags() ?>
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="img/favicon.png">
 
-    <p>Please fill out the following fields to login:</p>
+    <title>FlatLab - Flat & Responsive Bootstrap Admin Template</title>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+</head>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+<body class="login-body">
 
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
 
-            <?php ActiveForm::end(); ?>
-        </div>
+
+<div class="container">
+
+
+    <?=Html::beginForm(['site/login'],'post',['class'=>'form-signin'])?>
+    <h2 class="form-signin-heading">互联网理财平台后台</h2>
+    <div class="login-wrap">
+        <input name="LoginForm[username]" type="text" class="form-control" placeholder="User ID" autofocus>
+        <input name="LoginForm[password]" type="password" class="form-control" placeholder="Password">
+        <label class="checkbox">
+            <input name="LoginForm[rememberMe]" type="checkbox" value="1"> Remember me
+                <span class="pull-right">
+                </span>
+        </label>
+
+        <button class="btn btn-lg btn-login btn-block" type="submit">立即登录</button>
+        <p><span style="color:red;"><?=$model->getFirstError('password')?></span></p>
+
+
+
     </div>
+
+    <?=Html::endForm()?>
+
 </div>
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

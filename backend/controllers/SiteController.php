@@ -66,9 +66,10 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            $this->redirect('/home/index');
+            //return $this->goHome();
         } else {
-            return $this->render('login', [
+            return $this->renderAjax('login', [
                 'model' => $model,
             ]);
         }
@@ -77,7 +78,6 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
-        return $this->goHome();
+        return $this->redirect('/site/login');
     }
 }

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "914f9194a4d021de88b285b03e683984",
-    "content-hash": "e1929a97e872bdbaacc8530468eccb67",
+    "hash": "293260a504deab9d03e3355b8af57939",
+    "content-hash": "16f596f7811b1b06ecf45a832aad2bce",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -298,6 +298,54 @@
                 "html"
             ],
             "time": "2015-08-05 01:03:42"
+        },
+        {
+            "name": "fortawesome/font-awesome",
+            "version": "v4.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "8e241f209faa1dd2182c9fdc9c352d8806504a4e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/FortAwesome/Font-Awesome/8e241f209faa1dd2182c9fdc9c352d8806504a4e.zip",
+                "reference": "8e241f209faa1dd2182c9fdc9c352d8806504a4e",
+                "shasum": ""
+            },
+            "require-dev": {
+                "jekyll": "1.0.2",
+                "lessc": "1.4.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.6.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OFL-1.1",
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Gandy",
+                    "email": "dave@fontawesome.io",
+                    "homepage": "http://twitter.com/davegandy",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The iconic font and CSS framework",
+            "homepage": "http://fontawesome.io/",
+            "keywords": [
+                "FontAwesome",
+                "awesome",
+                "bootstrap",
+                "font",
+                "icon"
+            ],
+            "time": "2016-05-13 15:42:25"
         },
         {
             "name": "swiftmailer/swiftmailer",
