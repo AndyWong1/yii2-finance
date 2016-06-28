@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
-Source Server Version : 50712
+Source Server         : localhost
+Source Server Version : 50713
 Source Host           : localhost:3306
 Source Database       : finance
 
 Target Server Type    : MYSQL
-Target Server Version : 50712
+Target Server Version : 50713
 File Encoding         : 65001
 
-Date: 2016-06-26 22:01:24
+Date: 2016-06-28 18:14:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for company
+-- Table structure for `company`
 -- ----------------------------
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
@@ -36,7 +36,7 @@ CREATE TABLE `company` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for product
+-- Table structure for `product`
 -- ----------------------------
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
@@ -57,15 +57,16 @@ CREATE TABLE `product` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of product
 -- ----------------------------
-INSERT INTO `product` VALUES ('1', '夸父1号', '夸父1号', '1', '0', '1', '2016-06-26 17:56:29', '2016-06-26 17:56:32', '0', '0', '1', '100', '1', '0', '2016-06-26 17:56:43', '2016-06-26 17:56:43');
+INSERT INTO `product` VALUES ('1', '中信信诚暖流增强1号', '中信信诚暖流增强1号专项资产管理计划', '1', '2', '1', '2016-06-26 17:56:29', '2016-06-26 17:56:32', '0', '0', '1', '100', '1', '0', '2016-06-26 17:56:43', '2016-06-28 16:18:18');
+INSERT INTO `product` VALUES ('2', '哈尔滨国际农博项目3-6号', '中信信诚农业发展基金哈尔滨国际农博项目3-6号专项资产管理计划', '1', '2', '1', '2016-06-28 16:23:02', '2018-08-01 16:23:05', '0', '0', '1', '100', '0', '0', '2016-06-28 16:23:24', '2016-06-28 16:23:48');
 
 -- ----------------------------
--- Table structure for product_ext
+-- Table structure for `product_ext`
 -- ----------------------------
 DROP TABLE IF EXISTS `product_ext`;
 CREATE TABLE `product_ext` (
@@ -125,15 +126,16 @@ CREATE TABLE `product_ext` (
   PRIMARY KEY (`id`),
   KEY `foreign_key_product` (`product_id`),
   CONSTRAINT `foreign_key_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of product_ext
 -- ----------------------------
-INSERT INTO `product_ext` VALUES ('1', '1', '3', '', '', '', '', '', '', '', '', '0', '0', '0', '1', '完成', '0.30', '0.00', '', '', '1', '', '', '1', '0', '', '0.00', '0.00', '无', '0.00', '', '无', '', '', '2016-06-26 17:58:48', '1', '1', '1', '无', '', '', '', '2016-06-26 17:58:01', ' ', '', '', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `product_ext` VALUES ('1', '1', '3', '', '', '', '', '', '', '', '', '12', '0', '0', '1', '完成', '0.30', '0.00', '', '', '1', '', '', '1', '0', '', '0.00', '0.00', '无', '0.00', '', '无', '', '', '2016-06-26 17:58:48', '1', '1', '1', '无', '', '', '', '2016-06-26 17:58:01', ' ', '', '', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `product_ext` VALUES ('2', '2', '3', '', '本资管计划所募集的资金全部用于认购合伙企业的中间级有限合伙份额，华鸿基业认购次级有限合伙份额。合伙企业控制项目公司华鸿信诚80%的股权，并通过银行向华鸿信诚发放委托贷款，资金用于哈尔滨国际农业博览中心项目土地取得及后期开发建设。', '', '', '', '', '', '', '24', '0', '0', '100', '完成', '10.00', '0.40', '', '', '1', '', '', '1', '0', '', '0.00', '0.00', '每年6月20日或提前终止日。', '0.00', '', '担保措施： 1、股权控制；2、股权质押；3、保证担保；4、土地按期抵押；', '', '', '2016-06-28 16:26:33', '1', '1', '1', '单志刚 - 毕业于-天津大学 工商管理 硕士 工作经历： 曾就职于沈阳重型机器厂、中国普天信息产业集团公司、联想移动通信科技有限公司、中信信托有限责任公司 现负责项目： 现负责中信信诚海南香水湾1-3号专项资产管理计划\r\n中信信诚上海周浦项目1号、3号、4号专项资产管理计划\r\n中信信诚·农业发展基金哈尔滨国际农博项目专项资产管理计划\r\n中信信诚？中铁福州项目股权与债权投资1号、2号专项资产管理计划\r\n中信信诚首创置业光和城股权投资基金1、2、3号专项资产管理计划等', '', '', '', '2018-06-28 16:27:26', '无', '', '', '0', '0', '0', '0', '0', '0', '0');
 
 -- ----------------------------
--- Table structure for product_file
+-- Table structure for `product_file`
 -- ----------------------------
 DROP TABLE IF EXISTS `product_file`;
 CREATE TABLE `product_file` (
@@ -154,7 +156,7 @@ CREATE TABLE `product_file` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for product_rate
+-- Table structure for `product_rate`
 -- ----------------------------
 DROP TABLE IF EXISTS `product_rate`;
 CREATE TABLE `product_rate` (
@@ -185,10 +187,10 @@ CREATE TABLE `product_rate` (
 -- ----------------------------
 -- Records of product_rate
 -- ----------------------------
-INSERT INTO `product_rate` VALUES ('1', '1', '100.00', '-1.00', '1', '0.00', '', '0.00', '', '0.00', '', '0.00', '', '0.00', '', '0.00', '', '0.00', '0.00', '0.00', '0.00');
+INSERT INTO `product_rate` VALUES ('1', '1', '1000000.00', '-1.00', '1', '0.00', '', '0.30', '', '0.50', '', '0.40', '', '0.40', '', '0.35', '', '0.00', '0.00', '0.00', '0.00');
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (

@@ -5,7 +5,24 @@ use app\models\ProductSearch;
 
 ?>
 <section class="wrapper">
+
 <div>
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                产品操作
+            </header>
+            <div class="panel-body">
+                <button type="button" class="btn btn-success">
+                    <a href="/product/create"><span>添加产品</span></a>
+                </button>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div>
+<div class="col-sm-12">
     <?=
         GridView::widget([
             'dataProvider' => $dataProvider,
@@ -52,11 +69,20 @@ use app\models\ProductSearch;
                 ],
                 [
                     'label' => '完成度',
-                    'value' => 'id'
+                    'value' => function($model){
+                        if($model->productExt->progress_rate == 0){
+                            return $model->productExt->progress_desc;
+                        }
+                        else{
+                            return $model->productExt->progress_rate."%";
+                        }
+                    }
                 ],
                 [
                     'label' => '收益率(%)',
-                    'value' => 'id'
+                    'value' => function($model){
+                        return $model->productExt->earnings_ratio;
+                    }
                 ],
 
                 [
@@ -149,5 +175,6 @@ use app\models\ProductSearch;
             ]
         ]);
     ?>
+</div>
 </div>
 </section>

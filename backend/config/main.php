@@ -40,4 +40,7 @@ return [
 
     ],
     'params' => $params,
+    'language' => 'zh-CN',
+    'layout' => 'master',
+    'defaultRoute' => '/home/index',
 ];

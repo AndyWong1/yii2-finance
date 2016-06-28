@@ -12,6 +12,9 @@ use common\models\LoginForm;
  */
 class SiteController extends Controller
 {
+
+    public $layout = false;
+
     /**
      * @inheritdoc
      */
@@ -61,7 +64,8 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            $this->redirect("/site/login");
+            //return $this->goHome();
         }
 
         $model = new LoginForm();

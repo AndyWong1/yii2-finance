@@ -11,7 +11,7 @@ class BaseController extends Controller {
     public function beforeAction($action){
         if(parent::beforeAction($action)){
             if(Yii::$app->user->isGuest){
-                $this->goHome();
+                $this->redirect("/site/login");
             }
             else{
                 return true;

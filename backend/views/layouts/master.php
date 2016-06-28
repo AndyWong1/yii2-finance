@@ -414,7 +414,7 @@ $image_path = Url::to('@web/img/');
     </section>
     <!--main content end-->
     <!--footer start-->
-    <footer class="site-footer">
+    <footer class="site-footer navbar-fixed-bottom">
         <div class="text-center">
             2016-2026 &copy; Finance by Sunshinearea.
             <a href="#" class="go-top">
