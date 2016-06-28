@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use app\models\ProductExt;
 use Yii;
 use app\models\Product;
 use app\models\ProductSearch;
@@ -64,12 +65,14 @@ class ProductController extends Controller
     public function actionCreate()
     {
         $model = new Product();
+        $ext_model = new ProductExt();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post('Product')) && $ext_model->load(Yii::$app->request->post('ProductExt')) && $model->save() && $ext_model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'ext_model' => $ext_model,
             ]);
         }
     }

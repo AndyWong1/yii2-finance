@@ -320,7 +320,7 @@ $image_path = Url::to('@web/img/');
                         <span>产品管理</span>
                     </a>
                     <ul class="sub">
-                        <li><a  href="#">固定收益</a></li>
+                        <li><a  href="/product/fixed-list">固定收益</a></li>
                         <li><a  href="#">浮动收益</a></li>
                         <li><a  href="#">保险</a></li>
                         <li><a  href="#">公司管理</a></li>
