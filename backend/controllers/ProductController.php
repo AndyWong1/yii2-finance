@@ -67,12 +67,17 @@ class ProductController extends Controller
         $model = new Product();
         $ext_model = new ProductExt();
 
-        if ($model->load(Yii::$app->request->post('Product')) && $ext_model->load(Yii::$app->request->post('ProductExt')) && $model->save() && $ext_model->save()) {
+        $is_load_success = $model->load(Yii::$app->request->post());
+        if ($is_load_success && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $msg = $is_load_success? ['type'=>'error','title'=>'错误!','content'=>current($model->getFirstErrors())]:['type'=>'error','title'=>'','content'=>''];
+            $is_msg_show = $is_load_success;
             return $this->render('create', [
                 'model' => $model,
                 'ext_model' => $ext_model,
+                'is_msg_show' => $is_msg_show,
+                'msg' => $msg,
             ]);
         }
     }

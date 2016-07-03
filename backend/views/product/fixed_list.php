@@ -70,18 +70,22 @@ use app\models\ProductSearch;
                 [
                     'label' => '完成度',
                     'value' => function($model){
-                        if($model->productExt->progress_rate == 0){
-                            return $model->productExt->progress_desc;
+                        if($model->productExt != null) {
+                            if ($model->productExt->progress_rate == 0) {
+                                return $model->productExt->progress_desc;
+                            } else {
+                                return $model->productExt->progress_rate . "%";
+                            }
                         }
                         else{
-                            return $model->productExt->progress_rate."%";
+                            return "";
                         }
                     }
                 ],
                 [
                     'label' => '收益率(%)',
                     'value' => function($model){
-                        return $model->productExt->earnings_ratio;
+                        return $model->productExt != null ? $model->productExt->earnings_ratio : "";
                     }
                 ],
 
@@ -116,7 +120,7 @@ use app\models\ProductSearch;
                 [
                     'label' => '存续周期(月)',
                     'value' => function($model){
-                        return $model->productExt->period;
+                        return $model->productExt != null ?$model->productExt->period:"";
                     }
                 ],
                 [
@@ -128,7 +132,7 @@ use app\models\ProductSearch;
                 [
                     'label' => '是否有下期',
                     'value' => function($model){
-                        return $model->productExt->has_next_period?"是":"否";
+                        return $model->productExt != null ? ($model->productExt->has_next_period?"是":"否"):"";
                     }
                 ],
                 [
